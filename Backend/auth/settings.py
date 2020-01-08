@@ -34,6 +34,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -107,7 +108,10 @@ REST_FRAMEWORK = {
 JWT_AUTH = {
     'JWT_RESPONSE_PAYLOAD_HANDLER':   'account.utils.custom_jwt_response_handler',
     'JWT_ALLOW_REFRESH': True,
-    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(seconds=3600)
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=300),
+    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=7),
+    'JWT_VERIFY': True,
+    'JWT_VERIFY_EXPIRATION': True,
 }
 
 # Internationalization
@@ -115,7 +119,7 @@ JWT_AUTH = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
