@@ -24,7 +24,7 @@ export const loadUser = () => (dispatch, getState) => {
   };
 
   if (token) {
-    config.headers["Authorization"] = `Token ${token}`;
+    config.headers["Authorization"] = `JWT ${token}`;
   }
 
   axios

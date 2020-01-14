@@ -29,7 +29,10 @@ class Login extends Component {
     }
     const { username, password } = this.state;
     return (
-      <div className="col-md-4 m-auto">
+      <div
+        className="col-md-4 m-auto"
+        style={{ justifySelf: "center", alignSelf: "center" }}
+      >
         <div className="card mt-4 p-4">
           <form onSubmit={this.onSubmit}>
             <div className="form-group">
@@ -86,9 +89,6 @@ class Login extends Component {
 const mapStateToProps = state => ({
   auth: state.auth
 });
-export default connect(
-  mapStateToProps,
-  {
-    loginUser
-  }
-)(Login);
+export default connect(mapStateToProps, {
+  loginUser
+})(Login);
